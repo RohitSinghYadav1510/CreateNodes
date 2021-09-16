@@ -22,10 +22,7 @@ pipeline {
                 sh 'terraform plan'
             }
         }
-        stage('Approve Build & Start') {
-               input{
-                message "Start Building as per Plan??"
-            }
+        stage('terraform apply') {
             steps {
                 sh 'terraform apply --auto-approve'
             }
