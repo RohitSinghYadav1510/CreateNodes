@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Git Fetch') {
             steps {
-                git 'https://github.com/vaibhavhexaview/TerraProject'
+                git 'https://github.com/RohitSinghYadav1510/CreateNodes.git'
             }
         }
          stage('Initialize Infrastructure') {
