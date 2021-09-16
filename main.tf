@@ -49,7 +49,7 @@ resource "aws_security_group" "sg77789" {
 
 
 
-resource "aws_instance" "Node1" {
+resource "aws_instance" "node1" {
   ami           = var.ami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
@@ -59,7 +59,7 @@ tags = {
   }
 }
 
-resource "aws_instance" "Node2" {
+resource "aws_instance" "node2" {
   ami           = var.ami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
