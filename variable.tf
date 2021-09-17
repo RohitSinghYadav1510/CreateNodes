@@ -27,3 +27,20 @@ variable "instancetype" {
   type = string
   default = "t2.micro"
 }
+
+variable "ansiblepass" {
+  type = string
+  default = "qwertyu"
+}
+
+variable "ansibleIP" {
+  type = string
+  default = "54.169.202.66"
+}
+
+variable "ansibleuser" {
+  type = string
+  default = "ansible"
+}
+
+

@@ -98,9 +98,9 @@ resource "null_resource" "nullremote1" {
 depends_on = [aws_instance.node2]
 connection {
  type     = "ssh"
- user     = "ansible"
- password = "qwertyu"
- host     = "54.169.202.66"
+ user     = var.ansibleuser
+ password = var.ansiblepass
+ host     = var.ansibleIP
 }
 
 #copying the ip.txt file to the Ansible control node from local system
