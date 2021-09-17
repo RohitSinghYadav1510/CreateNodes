@@ -88,6 +88,7 @@ tags = {
 
 resource "null_resource" "localpro1" {
   provisioner "local-exec" {
-    command = "echo ${aws_instance.web.public_ip} >> /home/ec2-user/public_ips.txt"
+    command = "echo ${aws_instance.node1.public_ip} >> /home/ec2-user/public_ips.txt"
+    command = "echo ${aws_instance.node2.public_ip} >> /home/ec2-user/public_ips.txt"
   }
 }
