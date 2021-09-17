@@ -95,7 +95,7 @@ tags = {
 
 
 resource "null_resource" "nullremote1" {
-depends_on = [aws_instance.node1, aws_instance.node2]
+depends_on = [aws_instance.node2]
 connection {
  type     = "ssh"
  user     = "ansible"
