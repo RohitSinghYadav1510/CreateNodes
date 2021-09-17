@@ -83,3 +83,11 @@ tags = {
     Name = var.node2
   }
 }
+
+
+
+resource "null_resource" "localpro1" {
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.web.public_ip} >> /home/ec2-user/public_ips.txt"
+  }
+}
