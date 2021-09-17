@@ -93,12 +93,19 @@ tags = {
 }
 
 
-/*
-resource "null_resource" "localpro1" {
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.node1.public_ip} >> /home/user1/public_ips.txt"
-    #command = "echo ${aws_instance.node2.public_ip} >> public_ips.txt"
-  }
+
+resource "null_resource" "nullremote1" {
+depends_on = [aws_instance.node1, aws_instance.node2]
+connection {
+ type     = "ssh"
+ user     = "ansible"
+ password = "qwertyu"
+ host     = "54.169.202.66"
 }
 
-*/
+#copying the ip.txt file to the Ansible control node from local system
+
+provisioner "file" {
+    source      = "hosts"
+    destination = "/home/ansible/hosts"
+       }
