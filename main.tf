@@ -53,6 +53,14 @@ resource "aws_instance" "node1" {
   ami           = var.ami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
+  key_name        = "rohit"
+  user_data = <<-EOF
+		#!/bin/bash
+		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
+		sudo echo "user1 ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+		sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+		sudo systemctl restart sshd
+               EOF
   
 tags = {
     Name = var.node1
@@ -63,6 +71,13 @@ resource "aws_instance" "node2" {
   ami           = var.ami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
+  user_data = <<-EOF
+		#!/bin/bash
+		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
+		sudo echo "user1 ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+		sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+		sudo systemctl restart sshd
+               EOF
 
 tags = {
     Name = var.node2
