@@ -66,7 +66,7 @@ tags = {
   }
 
  provisioner "local-exec" {
-    command = "echo ${self.public_ip} >> /home/hosts"
+    command = "echo ${self.public_ip} >> publicIps.txt"
   }
 }
 
@@ -88,7 +88,7 @@ tags = {
   }
 
   provisioner "local-exec" {
-    command = "echo ${self.public_ip} >> /home/hosts"
+    command = "echo ${self.public_ip} >> pubicIps.txt"
   }
 }
 
