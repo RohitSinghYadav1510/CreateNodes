@@ -109,3 +109,4 @@ provisioner "file" {
     source      = "hosts"
     destination = "/home/ansible/hosts"
        }
+}
