@@ -67,7 +67,7 @@ tags = {
   }
 
  provisioner "local-exec" {
-    command = "echo ${self.public_ip} >> /home/ec2-user/public_ips.txt"
+    command = "echo ${self.public_ip} >> /home/user1/public_ips.txt"
   }
 }
 
@@ -89,7 +89,7 @@ tags = {
   }
 
   provisioner "local-exec" {
-    command = "echo ${self.public_ip} >> /home/ec2-user/public_ips.txt"
+    command = "echo ${self.public_ip} >> /home/user1/public_ips.txt"
   }
 }
 
@@ -97,7 +97,7 @@ tags = {
 /*
 resource "null_resource" "localpro1" {
   provisioner "local-exec" {
-    command = "echo ${aws_instance.node1.public_ip} >> /home/ec2-user/public_ips.txt"
+    command = "echo ${aws_instance.node1.public_ip} >> /home/user1/public_ips.txt"
     #command = "echo ${aws_instance.node2.public_ip} >> public_ips.txt"
   }
 }
