@@ -35,7 +35,7 @@ variable "ansiblepass" {
 
 variable "ansibleIP" {
   type = string
-  default = "54.169.202.66"
+  default = "54.169.181.233"
 }
 
 variable "ansibleuser" {
