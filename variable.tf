@@ -1,6 +1,6 @@
 variable "ami" {
   type = string
-  default = "ami-0a23ccb2cdd9286bb"
+  default = "ami-0c1a7f89451184c8b"
   
 }
 variable "region" {
