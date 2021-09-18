@@ -76,6 +76,7 @@ resource "aws_instance" "node2" {
   ami           = var.ami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
+  key_name        = "rohit"
   user_data = <<-EOF
 		#!/bin/bash
 		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
