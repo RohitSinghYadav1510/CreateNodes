@@ -79,7 +79,8 @@ tags = {
   }
 
  provisioner "local-exec" {
-    command = "echo ${self.public_ip} > hosts"
+    command = "echo ' ' > hosts"
+    command = "echo Redhat ${self.public_ip} >> hosts"
   }
 }
 
@@ -102,7 +103,7 @@ tags = {
   }
 
   provisioner "local-exec" {
-    command = "echo ${self.public_ip} >> hosts"
+    command = "echo Ubuntu ${self.public_ip} >> hosts"
   }
 }
 
