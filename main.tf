@@ -78,12 +78,9 @@ tags = {
     Name = var.node1
   }
  
- provisioner "local-exec" {
-    command = "echo ' ' > hosts"
-  }
 
  provisioner "local-exec" {
-    command = "echo Redhat ${self.public_ip} >> hosts"
+    command = "echo Redhat ${self.public_ip} > hosts"
   }
 }
 
@@ -113,7 +110,7 @@ tags = {
 
 
 resource "null_resource" "nullremote1" {
-depends_on = [aws_instance.node2]
+depends_on = [aws_instance.node2, aws_instance.node1]
 connection {
  type     = "ssh"
  user     = var.ansibleuser
