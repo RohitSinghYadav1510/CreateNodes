@@ -16,7 +16,7 @@ resource "aws_security_group" "sg77789" {
     },
    
     {
-      description      = "This is for HTTP"
+      description      = "This is for Jenkins"
       from_port        = 8080
       to_port          = 8080
       protocol         = "tcp"
@@ -121,6 +121,6 @@ connection {
 
 provisioner "file" {
     source      = "hosts"
-    destination = "/etc/ansible/hosts"
+    destination = "/home/user1/hosts"
        }
 }
