@@ -1,3 +1,4 @@
+/*
 terraform{
     backend "s3"{
       bucket = "statebuck1510"
@@ -5,3 +6,4 @@ terraform{
       key = "Nodes/terraform.tfstate" 
   }
 }
+*/
