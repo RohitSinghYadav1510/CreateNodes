@@ -83,7 +83,6 @@ tags = {
   }
 
  provisioner "local-exec" {
-    command = "echo ' ' > hosts"
     command = "echo Redhat ${self.public_ip} >> hosts"
   }
 }
