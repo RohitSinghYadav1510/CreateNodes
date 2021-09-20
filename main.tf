@@ -77,6 +77,10 @@ resource "aws_instance" "node1" {
 tags = {
     Name = var.node1
   }
+ 
+ provisioner "local-exec" {
+    command = "echo ' ' > hosts"
+  }
 
  provisioner "local-exec" {
     command = "echo ' ' > hosts"
