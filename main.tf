@@ -65,7 +65,7 @@ resource "aws_instance" "node1" {
   ami           = var.redhatami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
-  key_name        = "rohit"
+  key_name        = "Jenkinskey"
   user_data = <<-EOF
 		#!/bin/bash
 		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
@@ -92,7 +92,7 @@ resource "aws_instance" "node2" {
   ami           = var.ubuntuami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
-  key_name        = "rohit"
+  key_name        = "Jenkinskey"
   user_data = <<-EOF
 		#!/bin/bash
 		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
