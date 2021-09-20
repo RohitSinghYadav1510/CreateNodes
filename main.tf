@@ -14,6 +14,18 @@ resource "aws_security_group" "sg77789" {
       security_groups = []
       self = true
     },
+   
+    {
+      description      = "This is for HTTP"
+      from_port        = 8080
+      to_port          = 8080
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = ["::/0"]
+      prefix_list_ids = []
+      security_groups = []
+      self = true
+    },
 
     {
       description      = "This is for SSH"
@@ -50,7 +62,7 @@ resource "aws_security_group" "sg77789" {
 
 
 resource "aws_instance" "node1" {
-  ami           = var.ami
+  ami           = var.redhatami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
   key_name        = "rohit"
@@ -73,7 +85,7 @@ tags = {
 
 
 resource "aws_instance" "node2" {
-  ami           = var.ami
+  ami           = var.ubuntuami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
   key_name        = "rohit"
@@ -109,6 +121,6 @@ connection {
 
 provisioner "file" {
     source      = "hosts"
-    destination = "/home/ansible/hosts"
+    destination = "/etc/ansible/hosts"
        }
 }

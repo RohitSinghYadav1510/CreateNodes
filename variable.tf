@@ -1,8 +1,13 @@
-variable "ami" {
+variable "redhatami" {
   type = string
-  default = "ami-06a0b4e3b7eb7a300"
-  
+  default = "ami-06a0b4e3b7eb7a300"  
 }
+
+variable "ubuntuami" {
+  type = string
+  default = "ami-0c1a7f89451184c8b" 
+}
+
 variable "region" {
   type = string 
   default = "ap-south-1"
@@ -30,17 +35,17 @@ variable "instancetype" {
 
 variable "ansiblepass" {
   type = string
-  default = "qwertyu"
+  default = "singhsaini"
 }
 
 variable "ansibleIP" {
   type = string
-  default = "54.169.181.233"
+  default = "18.116.204.4"
 }
 
 variable "ansibleuser" {
   type = string
-  default = "ansible"
+  default = "user1"
 }
 
 
