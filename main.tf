@@ -65,7 +65,6 @@ resource "aws_instance" "node1" {
   ami           = var.redhatami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
-  key_name        = "rohit"
   user_data = <<-EOF
 		#!/bin/bash
 		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
@@ -78,9 +77,12 @@ tags = {
     Name = var.node1
   }
  
+ provisioner "local-exec" {
+    command = "echo ' ' > hosts"
+  }
 
  provisioner "local-exec" {
-    command = "echo Redhat ${self.public_ip} > hosts"
+    command = "echo Redhat ${self.public_ip} >> hosts"
   }
 }
 
@@ -89,7 +91,6 @@ resource "aws_instance" "node2" {
   ami           = var.ubuntuami
   instance_type = var.instancetype
   security_groups = [ var.sgname ]
-  key_name        = "rohit"
   user_data = <<-EOF
 		#!/bin/bash
 		sudo useradd user1; echo -e "singhsaini\nsinghsaini" | passwd user1
@@ -110,7 +111,7 @@ tags = {
 
 
 resource "null_resource" "nullremote1" {
-depends_on = [aws_instance.node2, aws_instance.node1]
+depends_on = [aws_instance.node2]
 connection {
  type     = "ssh"
  user     = var.ansibleuser
